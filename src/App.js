@@ -26,7 +26,7 @@ function App() {
 
   //Delete
   const deleteTask = (id)=>{
-    console.log('Deleted', id);
+    setTasks(tasks.filter((task)=>task.id!==id))
   }
 
   // const name = 'John'
@@ -38,7 +38,7 @@ function App() {
        {/* <h2>Hi {x ? 'Yes' : 'No'}</h2> */}
        {/* <h1>hi</h1> */}
        <Header title = "Task Tracker"/>
-       <Tasks tasks ={tasks} onDelete = {deleteTask}/>
+       {tasks.length > 0 ? (<Tasks tasks ={tasks} onDelete = {deleteTask}/>) : ('No task to show')}
     </div>
   );
 }
